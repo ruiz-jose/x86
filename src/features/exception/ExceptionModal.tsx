@@ -54,7 +54,7 @@ const ExceptionModal: FC = () => {
         <div>
           Please report this bug at{' '}
           <Anchor href="https://github.com/ruiz-jose/x86/issues">
-          https://github.com/ruiz-jose/x86/issues
+            https://github.com/ruiz-jose/x86/issues
           </Anchor>
           .
         </div>

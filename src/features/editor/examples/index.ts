@@ -1,12 +1,12 @@
 import hardwareInterrupts from './hardware_interrupts.asm?raw'
 import keyboardInput from './keyboard_input.asm?raw'
 import procedures from './procedures.asm?raw'
+import simple from './program_simple.asm?raw'
 import sevenSegmentDisplay from './seven_segment_display.asm?raw'
 import softwareInterrupts from './software_interrupts.asm?raw'
 import template from './template.asm?raw'
 import trafficLights from './traffic_lights.asm?raw'
 import visualDisplayUnit from './visual_display_unit.asm?raw'
-import simple from './program_simple.asm?raw'
 
 const TITLE_REGEXP = /;\t(.*)/
 
@@ -43,7 +43,7 @@ export const examples: readonly Example[] = [
   keyboardInput,
   visualDisplayUnit,
   trafficLights,
-  sevenSegmentDisplay,  
+  sevenSegmentDisplay,
 ].map((content) => {
   return {
     title: getTitleFrom(content),

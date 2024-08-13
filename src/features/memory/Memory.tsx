@@ -12,8 +12,8 @@ import { MemoryView, selectMemoryDataRows, selectMemoryView } from './memorySlic
 import { selectMemorySourceRows } from './selectors'
 
 // Definir las constantes VDU_START_ADDRESS y VDU_END_ADDRESS
-const VDU_START_ADDRESS = 0xC0
-const VDU_END_ADDRESS = 0xFF
+const VDU_START_ADDRESS = 0xc0
+const VDU_END_ADDRESS = 0xff
 
 const Memory: FC = () => {
   const [isOpen, toggleOpen] = useToggle(true)
@@ -63,7 +63,8 @@ const Memory: FC = () => {
                           isDataView && {
                             'bg-blue-100': address === sp,
                             'bg-blue-50': address > sp && address <= MAX_SP,
-                            'bg-yellow-100': address >= VDU_START_ADDRESS && address <= VDU_END_ADDRESS, // Color de fondo para la pantalla
+                            'bg-yellow-100':
+                              address >= VDU_START_ADDRESS && address <= VDU_END_ADDRESS, // Color de fondo para la pantalla
                           },
                         )}>
                         {memoryView === MemoryView.Hexadecimal

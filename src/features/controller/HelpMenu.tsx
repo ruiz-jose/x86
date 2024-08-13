@@ -32,17 +32,11 @@ const InstructionSetButton: FC = () => (
 )
 
 const ReportIssueButton: FC = () => (
-  <ExternalLinkButton
-    href="https://github.com/ruiz-jose/x86/issues"
-    name="Report Issue"
-  />
+  <ExternalLinkButton href="https://github.com/ruiz-jose/x86/issues" name="Report Issue" />
 )
 
 const DiscussionsButton: FC = () => (
-  <ExternalLinkButton
-    href="https://github.com/ruiz-jose/x86/discussions"
-    name="Discussions"
-  />
+  <ExternalLinkButton href="https://github.com/ruiz-jose/x86/discussions" name="Discussions" />
 )
 
 interface AboutButtonProps {
@@ -82,14 +76,11 @@ const AboutModal: FC<AboutModalProps> = ({ isOpen, toggleOpen }) => {
           <div>
             <div>
               Version:{' '}
-              <Anchor href="https://github.com/ruiz-jose/x86/releases">
-                {__VERSION__}
-              </Anchor>
+              <Anchor href="https://github.com/ruiz-jose/x86/releases">{__VERSION__}</Anchor>
             </div>
             <div>
               Commit:{' '}
-              <Anchor
-                href={`https://github.com/ruiz-jose/x86/commits/${__COMMIT_HASH__}`}>
+              <Anchor href={`https://github.com/ruiz-jose/x86/commits/${__COMMIT_HASH__}`}>
                 {__COMMIT_HASH__}
               </Anchor>
             </div>
