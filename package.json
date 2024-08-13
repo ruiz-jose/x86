@@ -1,7 +1,7 @@
 {
-  "name": "assembler-simulator",
+  "name": "sim-x86",
   "private": true,
-  "version": "1.0.0-alpha.38",
+  "version": "1.0.0-alpha.0",
   "description": "Simulador CPU x86 de 8 bits",
   "type": "module",
   "scripts": {
