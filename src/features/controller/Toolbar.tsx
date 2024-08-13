@@ -34,8 +34,8 @@ const ToolBar: FC = () => {
   return (
     <header className="border-y flex flex-row-reverse min-w-max bg-gray-100 h-8 w-full z-10 fixed items-center justify-between">
       <div className="flex space-x-2 py-1 px-2 items-center">
-        <h1>Assembler Simulator</h1>
-        <Anchor href="https://github.com/exuanbo/assembler-simulator">
+        <h1>Sim-x86</h1>
+        <Anchor href="https://github.com/ruiz-jose/x86">
           <Github width="1.125rem" />
         </Anchor>
       </div>

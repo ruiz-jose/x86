@@ -53,8 +53,8 @@ const ExceptionModal: FC = () => {
           : null}
         <div>
           Please report this bug at{' '}
-          <Anchor href="https://github.com/exuanbo/assembler-simulator/issues">
-            https://github.com/exuanbo/assembler-simulator/issues
+          <Anchor href="https://github.com/ruiz-jose/x86/issues">
+          https://github.com/ruiz-jose/x86/issues
           </Anchor>
           .
         </div>

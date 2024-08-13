@@ -33,14 +33,14 @@ const InstructionSetButton: FC = () => (
 
 const ReportIssueButton: FC = () => (
   <ExternalLinkButton
-    href="https://github.com/exuanbo/assembler-simulator/issues"
+    href="https://github.com/ruiz-jose/x86/issues"
     name="Report Issue"
   />
 )
 
 const DiscussionsButton: FC = () => (
   <ExternalLinkButton
-    href="https://github.com/exuanbo/assembler-simulator/discussions"
+    href="https://github.com/ruiz-jose/x86/discussions"
     name="Discussions"
   />
 )
@@ -82,25 +82,26 @@ const AboutModal: FC<AboutModalProps> = ({ isOpen, toggleOpen }) => {
           <div>
             <div>
               Version:{' '}
-              <Anchor href="https://github.com/exuanbo/assembler-simulator/releases">
+              <Anchor href="https://github.com/ruiz-jose/x86/releases">
                 {__VERSION__}
               </Anchor>
             </div>
             <div>
               Commit:{' '}
               <Anchor
-                href={`https://github.com/exuanbo/assembler-simulator/commits/${__COMMIT_HASH__}`}>
+                href={`https://github.com/ruiz-jose/x86/commits/${__COMMIT_HASH__}`}>
                 {__COMMIT_HASH__}
               </Anchor>
             </div>
             <div>Date: {__COMMIT_DATE__}</div>
           </div>
           <div>
-            <Anchor href="https://github.com/exuanbo/assembler-simulator/blob/main/LICENSE">
+            <Anchor href="https://github.com/ruiz-jose/x86/blob/main/LICENSE">
               GPL-3.0 License
             </Anchor>{' '}
             <span className="font-sans">©</span> 2022-Present{' '}
             <Anchor href="https://github.com/exuanbo">Exuanbo</Anchor>
+            <Anchor href="https://github.com/ruiz-jose">ruiz-jose</Anchor>
           </div>
         </div>
       </div>
