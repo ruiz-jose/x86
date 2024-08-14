@@ -1,7 +1,7 @@
 # Sim-x86
 
-[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/exuanbo/assembler-simulator.svg?label=release&sort=semver)](https://github.com/exuanbo/assembler-simulator/tags)
-![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/exuanbo/assembler-simulator/gh-pages.yml.svg)
+[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/ruiz-jose/x86.svg?label=release&sort=semver)](https://github.com/ruiz-jose/x86/tags)
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/ruiz-jose/x86/gh-pages.yml.svg)
 [![libera manifesto](https://img.shields.io/badge/libera-manifesto-lightgrey.svg)](https://liberamanifesto.com)
 
 Adaptación del simulador [Assembler Simulator](https://exuanbo.xyz/assembler-simulator/) a los contenidos que se desarrollan en la de la asignatura arquitectura de computadoras de la FCAD-UNER.
