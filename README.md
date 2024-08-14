@@ -4,7 +4,7 @@
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/exuanbo/assembler-simulator/gh-pages.yml.svg)
 [![libera manifesto](https://img.shields.io/badge/libera-manifesto-lightgrey.svg)](https://liberamanifesto.com)
 
-Adaptación del simulador [Assembler Simulator](https://exuanbo.xyz/assembler-simulator/) a los contenidos que se desarrollan en arquitectura de computadoras de las asignaturas de la UNER.
+Adaptación del simulador [Assembler Simulator](https://exuanbo.xyz/assembler-simulator/) a los contenidos que se desarrollan en la de la asignatura arquitectura de computadoras de la FCAD-UNER.
 
 The Assembler Simulator is an 8-bit CPU simulation tool that utilizes the "Samphire" sms32v50 [Microprocessor Simulator](https://nbest.co.uk/Softwareforeducation/sms32v50/sms32v50_manual/index.htm) instruction set, which is analogous to the Intel 8086 architecture. Originally, a native desktop application based on this instruction set was employed at University College Cork to facilitate the teaching of the CS1111 Systems Organisation module. However, it was limited to the Windows operating system.
 
