@@ -45,4 +45,5 @@ This project draws inspiration from and extends gratitude to the following works
 ## License
 
 [GPL-3.0 License](https://github.com/exuanbo/assembler-simulator/blob/main/LICENSE) © 2022-Present [Exuanbo](https://github.com/exuanbo)
+
 [GPL-3.0 License](https://github.com/exuanbo/assembler-simulator/blob/main/LICENSE) © 2024-Present [ruiz-jose](https://github.com/ruiz-jose)
