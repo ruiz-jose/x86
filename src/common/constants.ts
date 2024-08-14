@@ -144,6 +144,11 @@ export enum Opcode {
 
   // Direct Arithmetic
   ADD_REG_TO_REG = 0xa0,
+  ADD_IMM_TO_REG = 0xd5,
+  ADD_VAL_FROM_ADDR_TO_REG = 0xd6,
+  ADD_VAL_FROM_REG_ADDR_TO_REG = 0xd7,
+  ADD_REG_TO_ADDR = 0xd8,
+  ADD_REG_ADDR_TO_REG = 0xd9,
   SUB_REG_FROM_REG = 0xa1,
   MUL_REG_BY_REG = 0xa2,
   DIV_REG_BY_REG = 0xa3,
@@ -160,7 +165,7 @@ export enum Opcode {
   SHR_REG = 0x9d,
 
   // Immediate Arithmetic
-  ADD_IMM_TO_REG = 0xb0,
+
   SUB_IMM_FROM_REG = 0xb1,
   MUL_REG_BY_IMM = 0xb2,
   DIV_REG_BY_IMM = 0xb3,

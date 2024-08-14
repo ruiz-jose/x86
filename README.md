@@ -6,6 +6,8 @@
 
 Adaptación del simulador [Assembler Simulator](https://exuanbo.xyz/assembler-simulator/) a los contenidos que se desarrollan en la de la asignatura arquitectura de computadoras de la FCAD-UNER.
 
+Prueba el simulador Sim-x86 online [Aquí](https://ruiz-jose.github.io/x86/).
+
 The Assembler Simulator is an 8-bit CPU simulation tool that utilizes the "Samphire" sms32v50 [Microprocessor Simulator](https://nbest.co.uk/Softwareforeducation/sms32v50/sms32v50_manual/index.htm) instruction set, which is analogous to the Intel 8086 architecture. Originally, a native desktop application based on this instruction set was employed at University College Cork to facilitate the teaching of the CS1111 Systems Organisation module. However, it was limited to the Windows operating system.
 
 Our project endeavors to replicate the functionality of the "Samphire" application as closely as possible, while enhancing the learning experience by leveraging state-of-the-art web technologies:
