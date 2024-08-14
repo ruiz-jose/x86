@@ -53,8 +53,8 @@ export default defineConfig(async () => ({
       registerType: 'prompt',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png'],
       manifest: {
-        name: 'Assembler Simulator',
-        short_name: 'AssemblerSimulator',
+        name: 'Sim-x86',
+        short_name: 'Sim-x86',
         description,
         id: `/${name}/`,
         theme_color: '#ffffff',
