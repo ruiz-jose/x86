@@ -382,6 +382,10 @@ const parseStatement = (tokenizer: Tokenizer): Statement => {
           ;[firstOperand, secondOperand] = parseOperands([
             [OperandType.Register, OperandType.Register],
             [OperandType.Register, OperandType.Number],
+            [OperandType.Register, OperandType.Address], 
+            [OperandType.Register, OperandType.RegisterAddress], 
+            [OperandType.Address, OperandType.Register], 
+            [OperandType.RegisterAddress, OperandType.Register], 
           ])
           switch (secondOperand.type) {
             case OperandType.Register:
@@ -389,6 +393,12 @@ const parseStatement = (tokenizer: Tokenizer): Statement => {
               break
             case OperandType.Number:
               opcode = Opcode.ADD_IMM_TO_REG
+              break
+            case OperandType.Address:
+              opcode = Opcode.ADD_MEM_TO_REG
+              break
+            case OperandType.RegisterAddress:
+              opcode = Opcode.ADD_REG_ADDR_TO_REG
               break
           }
           break
