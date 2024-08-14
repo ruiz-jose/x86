@@ -465,10 +465,10 @@ exports[`parser should parse direct arithmetic instruction 1`] = `
 exports[`parser should parse immediate arithmetic instruction 1`] = `
 [
   {
-    "codes": [176, 0, 1,],
+    "codes": [213, 0, 1,],
     "instruction": {
       "mnemonic": "ADD",
-      "opcode": 176,
+      "opcode": 213,
       "range": {
         "from": 1,
         "to": 4,
