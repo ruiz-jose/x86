@@ -382,24 +382,33 @@ const parseStatement = (tokenizer: Tokenizer): Statement => {
           ;[firstOperand, secondOperand] = parseOperands([
             [OperandType.Register, OperandType.Register],
             [OperandType.Register, OperandType.Number],
-            [OperandType.Register, OperandType.Address], 
-            [OperandType.Register, OperandType.RegisterAddress], 
-            [OperandType.Address, OperandType.Register], 
-            [OperandType.RegisterAddress, OperandType.Register], 
+            [OperandType.Register, OperandType.Address],
+            [OperandType.Register, OperandType.RegisterAddress],
+            [OperandType.Address, OperandType.Register],
+            [OperandType.RegisterAddress, OperandType.Register],
           ])
-          switch (secondOperand.type) {
+          switch (firstOperand.type) {
             case OperandType.Register:
-              opcode = Opcode.ADD_REG_TO_REG
-              break
-            case OperandType.Number:
-              opcode = Opcode.ADD_IMM_TO_REG
+              switch (secondOperand.type) {
+                case OperandType.Register:
+                  opcode = Opcode.ADD_REG_TO_REG
+                  break
+                case OperandType.Number:
+                  opcode = Opcode.ADD_IMM_TO_REG
+                  break
+                case OperandType.Address:
+                  opcode = Opcode.ADD_VAL_FROM_ADDR_TO_REG
+                  break
+                case OperandType.RegisterAddress:
+                  opcode = Opcode.ADD_VAL_FROM_REG_ADDR_TO_REG
+                  break
+              }
               break
             case OperandType.Address:
-              opcode = Opcode.ADD_MEM_TO_REG
+              opcode = Opcode.ADD_REG_TO_ADDR
               break
             case OperandType.RegisterAddress:
               opcode = Opcode.ADD_REG_ADDR_TO_REG
-              break
           }
           break
         case Mnemonic.SUB:

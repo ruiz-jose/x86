@@ -281,7 +281,7 @@ export const step = (lastStepResult: StepResult, inputSignals: InputSignals): St
         incIp()
         break
       }
-      case Opcode.ADD_MEM_TO_REG: {
+      case Opcode.ADD_VAL_FROM_ADDR_TO_REG: {
         const destReg = validateGpr(loadFromMemory(incIp()))
         const address = loadFromMemory(incIp())
         setGpr(destReg, getGpr(destReg) + loadFromMemory(address))
