@@ -273,7 +273,7 @@ export const step = (lastStepResult: StepResult, inputSignals: InputSignals): St
       console.log(`Estado del registro sr: ${flags.toString(2).padStart(8, '0')}`)
 
       //return result
-      return __result
+      return __result & 0xff // Asegúrate de que el resultado esté en el rango de 8 bits
     }
 
     /* ------------------------------------------------------------------------------------------ */
@@ -298,18 +298,20 @@ export const step = (lastStepResult: StepResult, inputSignals: InputSignals): St
         incIp()
         break
       }
-      case Opcode.ADD_VAL_FROM_ADDR_TO_REG: {
+      case Opcode.ADD_VAL_FROM_REG_ADDR_TO_REG: {
+        console.log('Ejecutando Opcode.ADD_VAL_FROM_REG_ADDR_TO_REG');
         const destReg = validateGpr(loadFromMemory(incIp()))
         const address = loadFromMemory(incIp())
         setGpr(destReg, getGpr(destReg) + loadFromMemory(address))
         incIp()
         break
       }
-      case Opcode.ADD_REG_ADDR_TO_REG: {
+      case Opcode.ADD_ADDR_TO_REG: {
+        console.log('Ejecutando Opcode.ADD_ADDR_TO_REG');
         const destReg = validateGpr(loadFromMemory(incIp()))
         const srcReg = validateGpr(loadFromMemory(incIp()))
         const address = getGpr(srcReg)
-        setGpr(destReg, getGpr(destReg) + loadFromMemory(address))
+        setGpr(destReg, operate(add, getGpr(destReg), loadFromMemory(address)))
         incIp()
         break
       }

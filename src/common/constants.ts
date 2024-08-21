@@ -145,7 +145,7 @@ export enum Opcode {
   // Direct Arithmetic
   ADD_REG_TO_REG = 0xa0,
   ADD_IMM_TO_REG = 0xd5,
-  ADD_VAL_FROM_ADDR_TO_REG = 0xd6,
+  ADD_ADDR_TO_REG = 0xd6,
   ADD_VAL_FROM_REG_ADDR_TO_REG = 0xd7,
   ADD_REG_TO_ADDR = 0xd8,
   ADD_REG_ADDR_TO_REG = 0xd9,
