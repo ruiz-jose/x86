@@ -28,7 +28,7 @@ const FlagIndicator: FC = () => (
   <td className="px-1">
     <div className="flex space-x-1 items-center justify-center">
       <span className="text-xs px-1">{NO_BREAK_SPACE.repeat(3)}</span>
-      <span className="text-sm px-1">{`${NO_BREAK_SPACE.repeat(3)}ISOZ${NO_BREAK_SPACE}`}</span>
+      <span className="text-sm px-1">{`${NO_BREAK_SPACE.repeat(3)}CISOZ${NO_BREAK_SPACE}`}</span>
     </div>
   </td>
 )

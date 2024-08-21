@@ -58,6 +58,7 @@ export enum StatusRegisterFlag {
   Overflow = 0b10 << 1,
   Sign = 0b10 << 2,
   Interrupt = 0b10 << 3,
+  Carry = 0b10 << 4, // Nuevo flag de carry
 }
 
 export type StatusRegister = number
@@ -245,6 +246,16 @@ export const step = (lastStepResult: StepResult, inputSignals: InputSignals): St
       if ((currentValue < 0x80 && __result >= 0x80) || (currentValue >= 0x80 && __result < 0x80)) {
         flags |= StatusRegisterFlag.Overflow
       }
+      // Verifica que el código se esté ejecutando
+      console.log('Ejecutando la función para mostrar el estado del registro sr');
+      
+      // Lógica para el flag de carry
+      if (__result > 0xff || __result < 0) {
+        flags |= StatusRegisterFlag.Carry
+      } else {
+        flags &= ~StatusRegisterFlag.Carry // Limpiar el flag de carry si no se cumple la condición
+      }
+
       const result = __result > 0xff ? __result % 0x100 : unsign8(__result)
       switch (true) {
         case result === 0:
@@ -256,7 +267,13 @@ export const step = (lastStepResult: StepResult, inputSignals: InputSignals): St
       }
       const interruptFlag = __cpuRegisters.sr & StatusRegisterFlag.Interrupt
       setSr(flags | interruptFlag)
-      return result
+
+      
+      // Mostrar el estado del registro de estado sr en la consola
+      console.log(`Estado del registro sr: ${flags.toString(2).padStart(8, '0')}`)
+
+      //return result
+      return __result
     }
 
     /* ------------------------------------------------------------------------------------------ */

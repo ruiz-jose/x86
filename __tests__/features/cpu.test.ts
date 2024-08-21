@@ -113,6 +113,15 @@ describe('cpu', () => {
         expect(step(memoryData, cpuRegisters)).toMatchSnapshot()
       })
 
+      it('should set carry flag on overflow', () => {
+        const memoryData = getMemoryData('add al, 0xFF') // Ejemplo de instrucción que causa un desbordamiento
+        const cpuRegisters = produce(initialRegisters, (draft) => {
+          draft.gpr = [0xff, 1, 0, 0]; // Actualiza el registro gpr
+        })
+        const result = step(memoryData, cpuRegisters)
+        expect(result.cpuRegisters.sr & StatusRegisterFlag.Carry).toBe(StatusRegisterFlag.Carry)
+      })
+
       it('should only set sign flag', () => {
         const cpuRegisters = produce(initialRegisters, (draft) => {
           draft.gpr = [0x80, 1, 0, 0]
