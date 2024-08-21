@@ -400,7 +400,7 @@ const parseStatement = (tokenizer: Tokenizer): Statement => {
                   opcode = Opcode.ADD_ADDR_TO_REG
                   break
                 case OperandType.RegisterAddress:
-                  opcode = Opcode.ADD_VAL_FROM_REG_ADDR_TO_REG
+                  opcode = Opcode.ADD_REG_ADDR_TO_REG
                   break
               }
               break

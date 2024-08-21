@@ -54,11 +54,11 @@ export type InstructionPointer = number
 export type StackPointer = number
 
 export enum StatusRegisterFlag {
+  Carry = 0b1, // Cambiar el flag de carry al bit de menor peso
   Zero = 0b10 << 0,
   Overflow = 0b10 << 1,
   Sign = 0b10 << 2,
   Interrupt = 0b10 << 3,
-  Carry = 0b10 << 4, // Nuevo flag de carry
 }
 
 export type StatusRegister = number
@@ -243,9 +243,16 @@ export const step = (lastStepResult: StepResult, inputSignals: InputSignals): St
       const currentValue = operands[operands.length - 1]
       const __result = operation(...operands)
       let flags = 0
-      if ((currentValue < 0x80 && __result >= 0x80) || (currentValue >= 0x80 && __result < 0x80)) {
+      /*if ((currentValue < 0x80 && __result >= 0x80) || (currentValue >= 0x80 && __result < 0x80)) {
+        flags |= StatusRegisterFlag.Overflow
+      }*/
+
+      // Cambia la condición para el flag Overflow
+      const signedResult = __result << 24 >> 24 // Convertir a 8 bits con signo
+      if (signedResult < -128 || signedResult > 127) {
         flags |= StatusRegisterFlag.Overflow
       }
+
       // Verifica que el código se esté ejecutando
       console.log('Ejecutando la función para mostrar el estado del registro sr');
       
@@ -290,7 +297,7 @@ export const step = (lastStepResult: StepResult, inputSignals: InputSignals): St
         break
       }
 
-      // Direct Arithmetic
+      // register-register arithmetic
       case Opcode.ADD_REG_TO_REG: {
         const destReg = validateGpr(loadFromMemory(incIp()))
         const srcReg = validateGpr(loadFromMemory(incIp()))
@@ -298,19 +305,25 @@ export const step = (lastStepResult: StepResult, inputSignals: InputSignals): St
         incIp()
         break
       }
-      case Opcode.ADD_VAL_FROM_REG_ADDR_TO_REG: {
-        console.log('Ejecutando Opcode.ADD_VAL_FROM_REG_ADDR_TO_REG');
+      // Immediate Arithmetic
+      case Opcode.ADD_IMM_TO_REG: {
         const destReg = validateGpr(loadFromMemory(incIp()))
-        const address = loadFromMemory(incIp())
-        setGpr(destReg, getGpr(destReg) + loadFromMemory(address))
+        const value = loadFromMemory(incIp())
+        setGpr(destReg, operate(add, value, getGpr(destReg)))
         incIp()
         break
       }
+      // Direct Arithmetic
       case Opcode.ADD_ADDR_TO_REG: {
-        console.log('Ejecutando Opcode.ADD_ADDR_TO_REG');
         const destReg = validateGpr(loadFromMemory(incIp()))
-        const srcReg = validateGpr(loadFromMemory(incIp()))
-        const address = getGpr(srcReg)
+        const address = loadFromMemory(incIp())
+        setGpr(destReg, operate(add, getGpr(destReg), loadFromMemory(address)))
+        incIp()
+        break
+      }
+      case Opcode.ADD_REG_ADDR_TO_REG: {
+        const destReg = validateGpr(loadFromMemory(incIp()))
+        const address = loadFromMemory(incIp())
         setGpr(destReg, operate(add, getGpr(destReg), loadFromMemory(address)))
         incIp()
         break
@@ -403,15 +416,6 @@ export const step = (lastStepResult: StepResult, inputSignals: InputSignals): St
       case Opcode.SHR_REG: {
         const destReg = validateGpr(loadFromMemory(incIp()))
         setGpr(destReg, operate(shr, getGpr(destReg)))
-        incIp()
-        break
-      }
-
-      // Immediate Arithmetic
-      case Opcode.ADD_IMM_TO_REG: {
-        const destReg = validateGpr(loadFromMemory(incIp()))
-        const value = loadFromMemory(incIp())
-        setGpr(destReg, operate(add, value, getGpr(destReg)))
         incIp()
         break
       }
