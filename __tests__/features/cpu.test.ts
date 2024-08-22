@@ -114,9 +114,9 @@ describe('cpu', () => {
       })
 
       it('should set carry flag on overflow', () => {
-        const memoryData = getMemoryData('add al, 0xFF') // Ejemplo de instrucción que causa un desbordamiento
+        const memoryData = getMemoryData('add al, 01 end')
         const cpuRegisters = produce(initialRegisters, (draft) => {
-          draft.gpr = [0xff, 1, 0, 0]; // Actualiza el registro gpr
+          draft.gpr = [0xff, 1, 0, 0] // Cambia el valor inicial del registro AL a 0xFF
         })
         const result = step(memoryData, cpuRegisters)
         expect(result.cpuRegisters.sr & StatusRegisterFlag.Carry).toBe(StatusRegisterFlag.Carry)

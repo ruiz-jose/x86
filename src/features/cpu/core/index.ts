@@ -240,7 +240,7 @@ export const step = (lastStepResult: StepResult, inputSignals: InputSignals): St
       operation: (...operands: T) => number,
       ...operands: T
     ): number => {
-      const currentValue = operands[operands.length - 1]
+      // const currentValue = operands[operands.length - 1]
       const __result = operation(...operands)
       let flags = 0
       /*if ((currentValue < 0x80 && __result >= 0x80) || (currentValue >= 0x80 && __result < 0x80)) {
@@ -248,14 +248,14 @@ export const step = (lastStepResult: StepResult, inputSignals: InputSignals): St
       }*/
 
       // Cambia la condición para el flag Overflow
-      const signedResult = __result << 24 >> 24 // Convertir a 8 bits con signo
+      const signedResult = (__result << 24) >> 24 // Convertir a 8 bits con signo
       if (signedResult < -128 || signedResult > 127) {
         flags |= StatusRegisterFlag.Overflow
       }
 
       // Verifica que el código se esté ejecutando
-      console.log('Ejecutando la función para mostrar el estado del registro sr');
-      
+      console.log('Ejecutando la función para mostrar el estado del registro sr')
+
       // Lógica para el flag de carry
       if (__result > 0xff || __result < 0) {
         flags |= StatusRegisterFlag.Carry
@@ -275,7 +275,6 @@ export const step = (lastStepResult: StepResult, inputSignals: InputSignals): St
       const interruptFlag = __cpuRegisters.sr & StatusRegisterFlag.Interrupt
       setSr(flags | interruptFlag)
 
-      
       // Mostrar el estado del registro de estado sr en la consola
       console.log(`Estado del registro sr: ${flags.toString(2).padStart(8, '0')}`)
 
