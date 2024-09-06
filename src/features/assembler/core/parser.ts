@@ -522,21 +522,21 @@ const parseStatement = (tokenizer: Tokenizer): Statement => {
               invariant(secondOperand.type !== OperandType.Register)
               switch (secondOperand.type) {
                 case OperandType.Number:
-                  opcode = Opcode.MOV_IMM_TO_REG
+                  opcode = Opcode.MOV_REG_INM
                   break
                 case OperandType.Address:
-                  opcode = Opcode.MOV_VAL_FROM_ADDR_TO_REG
+                  opcode = Opcode.MOV_REG_ADDR
                   break
                 case OperandType.RegisterAddress:
-                  opcode = Opcode.MOV_VAL_FROM_REG_ADDR_TO_REG
+                  opcode = Opcode.MOV_REG_REGADDR
                   break
               }
               break
             case OperandType.Address:
-              opcode = Opcode.MOV_REG_TO_ADDR
+              opcode = Opcode.MOV_ADDR_REG
               break
             case OperandType.RegisterAddress:
-              opcode = Opcode.MOV_REG_TO_REG_ADDR
+              opcode = Opcode.MOV_REGADDR_REG
           }
           break
         case Mnemonic.CMP:

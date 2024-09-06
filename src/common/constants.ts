@@ -182,16 +182,16 @@ export enum Opcode {
   JO = 0xc5,
   JNO = 0xc6,
 
-  // Immediate Move
-  MOV_IMM_TO_REG = 0xd0,
+  // Immediate Move reg <- inm
+  MOV_REG_INM = 0xd0,
 
   // Direct Move
-  MOV_VAL_FROM_ADDR_TO_REG = 0xd1,
-  MOV_REG_TO_ADDR = 0xd2,
+  MOV_REG_ADDR = 0xd1,
+  MOV_ADDR_REG = 0xd2,
 
   // Indirect Move
-  MOV_VAL_FROM_REG_ADDR_TO_REG = 0xd3,
-  MOV_REG_TO_REG_ADDR = 0xd4,
+  MOV_REG_REGADDR = 0xd3,
+  MOV_REGADDR_REG = 0xd4,
 
   // Direct Register Comparison
   CMP_REG_WITH_REG = 0xda,

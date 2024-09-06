@@ -506,7 +506,7 @@ export const step = (lastStepResult: StepResult, inputSignals: InputSignals): St
       }
 
       // Immediate Move
-      case Opcode.MOV_REG_IMM: {
+      case Opcode.MOV_REG_INM: {
         const destReg = validateGpr(loadFromMemory(incIp()))
         const value = loadFromMemory(incIp())
         setGpr(destReg, value)
@@ -515,14 +515,14 @@ export const step = (lastStepResult: StepResult, inputSignals: InputSignals): St
       }
 
       // Direct Move
-      case Opcode.MOV_VAL_FROM_ADDR_TO_REG: {
+      case Opcode.MOV_REG_ADDR: {
         const destReg = validateGpr(loadFromMemory(incIp()))
         const address = loadFromMemory(incIp())
         setGpr(destReg, loadFromMemory(address))
         incIp()
         break
       }
-      case Opcode.MOV_REG_TO_ADDR: {
+      case Opcode.MOV_ADDR_REG: {
         const address = loadFromMemory(incIp())
         const srcReg = validateGpr(loadFromMemory(incIp()))
         storeToMemory(address, getGpr(srcReg))
@@ -531,7 +531,7 @@ export const step = (lastStepResult: StepResult, inputSignals: InputSignals): St
       }
 
       // Indirect Move
-      case Opcode.MOV_VAL_FROM_REG_ADDR_TO_REG: {
+      case Opcode.MOV_REG_REGADDR: {
         const destReg = validateGpr(loadFromMemory(incIp()))
         const srcReg = validateGpr(loadFromMemory(incIp()))
         const address = getGpr(srcReg)
@@ -539,7 +539,7 @@ export const step = (lastStepResult: StepResult, inputSignals: InputSignals): St
         incIp()
         break
       }
-      case Opcode.MOV_REG_TO_REG_ADDR: {
+      case Opcode.MOV_REGADDR_REG: {
         const destReg = validateGpr(loadFromMemory(incIp()))
         const address = getGpr(destReg)
         const srcReg = validateGpr(loadFromMemory(incIp()))
