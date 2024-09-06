@@ -297,7 +297,7 @@ export const step = (lastStepResult: StepResult, inputSignals: InputSignals): St
       }
 
       // register-register arithmetic
-      case Opcode.ADD_REG_TO_REG: {
+      case Opcode.ADD_REG_REG: {
         const destReg = validateGpr(loadFromMemory(incIp()))
         const srcReg = validateGpr(loadFromMemory(incIp()))
         setGpr(destReg, operate(add, getGpr(srcReg), getGpr(destReg)))
@@ -305,7 +305,7 @@ export const step = (lastStepResult: StepResult, inputSignals: InputSignals): St
         break
       }
       // Immediate Arithmetic
-      case Opcode.ADD_IMM_TO_REG: {
+      case Opcode.ADD_REG_INM: {
         const destReg = validateGpr(loadFromMemory(incIp()))
         const value = loadFromMemory(incIp())
         setGpr(destReg, operate(add, value, getGpr(destReg)))
@@ -313,14 +313,14 @@ export const step = (lastStepResult: StepResult, inputSignals: InputSignals): St
         break
       }
       // Direct Arithmetic
-      case Opcode.ADD_ADDR_TO_REG: {
+      case Opcode.ADD_REG_ADDR: {
         const destReg = validateGpr(loadFromMemory(incIp()))
         const address = loadFromMemory(incIp())
         setGpr(destReg, operate(add, getGpr(destReg), loadFromMemory(address)))
         incIp()
         break
       }
-      case Opcode.ADD_REG_ADDR_TO_REG: {
+      case Opcode.ADD_REG_REGADDR: {
         const destReg = validateGpr(loadFromMemory(incIp()))
         const address = loadFromMemory(incIp())
         setGpr(destReg, operate(add, getGpr(destReg), loadFromMemory(address)))
