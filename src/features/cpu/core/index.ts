@@ -506,7 +506,7 @@ export const step = (lastStepResult: StepResult, inputSignals: InputSignals): St
       }
 
       // Immediate Move
-      case Opcode.MOV_IMM_TO_REG: {
+      case Opcode.MOV_REG_IMM: {
         const destReg = validateGpr(loadFromMemory(incIp()))
         const value = loadFromMemory(incIp())
         setGpr(destReg, value)
