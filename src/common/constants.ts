@@ -142,14 +142,12 @@ export const MnemonicToOperandCountMap = {
 export enum Opcode {
   END = 0x00,
 
-
   ADD_REG_REG = 0xa0,  // reg <- reg
   ADD_REG_INM = 0xd5,  // reg <- inm
   ADD_REG_ADDR = 0xd6,  // reg <- dir
   ADD_ADDR_REG = 0xd7,  // dir <- reg
   ADD_REG_REGADDR = 0xd8,  // reg <- [reg]
   ADD_REGADDR_REG = 0xd9,  // [reg] <- reg
-
 
   SUB_REG_FROM_REG = 0xa1,
   MUL_REG_BY_REG = 0xa2,
