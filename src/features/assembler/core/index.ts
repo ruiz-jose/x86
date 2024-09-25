@@ -1,11 +1,9 @@
 import { Mnemonic } from '@/common/constants'
-import { invariant, unsign8 } from '@/common/utils'
+import { invariant } from '@/common/utils'
 
 import {
   AssembleEndOfMemoryError,
   DuplicateLabelError,
-  JumpDistanceError,
-  AssembleLabelNotExistError,
   OperandLabelNotExistError
 } from './exceptions'
 import { type Operand, OperandType, parse, type Statement } from './parser'
@@ -71,7 +69,7 @@ export const assemble = (source: string): AssembleResult => {
       address = firstOperand.code
       continue
     }
-   /* if (firstOperand?.type === OperandType.Label) {
+    /*if (firstOperand?.type === OperandType.Label) {
       if (!(firstOperand.value in labelToAddressMap)) {
         throw new LabelNotExistError(firstOperand)
       }
