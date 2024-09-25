@@ -2,7 +2,7 @@
 
 exports[`memory getSourceFrom should return correct source 1`] = `
 [
-  JMP, START, ADD, AL, 01, MOV, BL, [CL], END, END, END, END, END, END, END, END,
+  JMP, ADD, AL, 01, MOV, BL, [CL], END, END, END, END, END, END, END, END, END,
   END, END, END, END, END, END, END, END, END, END, END, END, END, END, END, END,
   END, END, END, END, END, END, END, END, END, END, END, END, END, END, END, END,
   END, END, END, END, END, END, END, END, END, END, END, END, END, END, END, END,
