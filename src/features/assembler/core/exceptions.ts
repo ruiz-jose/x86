@@ -150,7 +150,7 @@ export class AssembleEndOfMemoryError extends AssembleError {
   }
 }
 
-export class LabelNotExistError extends AssembleError {
+export class AssembleLabelNotExistError extends AssembleError {
   constructor({ source, range }: Operand) {
     super(`Label '${source}' does not exist.`, range)
   }
@@ -159,5 +159,24 @@ export class LabelNotExistError extends AssembleError {
 export class JumpDistanceError extends AssembleError {
   constructor({ range }: Operand) {
     super('Jump distance should be between -128 and 127.', range)
+  }
+}
+
+export class OperandError extends Error {
+  constructor(message: string, public range: SourceRange) {
+    super(message)
+    this.name = 'OperandError'
+  }
+}
+
+export class ExpectedNumberOrRegisterError extends OperandError {
+  constructor(addressValue: string | undefined, range: SourceRange) {
+    super(`Expected number or register, got '${addressValue || ']'}'.`, range)
+  }
+}
+
+export class OperandLabelNotExistError extends OperandError {
+  constructor(operand: Operand) {
+    super(`Label '${operand.value}' does not exist.`, operand.range)
   }
 }

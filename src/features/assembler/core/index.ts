@@ -5,7 +5,8 @@ import {
   AssembleEndOfMemoryError,
   DuplicateLabelError,
   JumpDistanceError,
-  LabelNotExistError,
+  AssembleLabelNotExistError,
+  OperandLabelNotExistError
 } from './exceptions'
 import { type Operand, OperandType, parse, type Statement } from './parser'
 
@@ -70,7 +71,7 @@ export const assemble = (source: string): AssembleResult => {
       address = firstOperand.code
       continue
     }
-    if (firstOperand?.type === OperandType.Label) {
+   /* if (firstOperand?.type === OperandType.Label) {
       if (!(firstOperand.value in labelToAddressMap)) {
         throw new LabelNotExistError(firstOperand)
       }
@@ -81,7 +82,19 @@ export const assemble = (source: string): AssembleResult => {
       const unsignedDistance = unsign8(distance)
       firstOperand.code = unsignedDistance
       codes.push(unsignedDistance)
-    }
+    }*/
+
+    
+    // Reemplazar etiquetas por direcciones
+    operands.forEach((operand) => {
+      if (operand.type === OperandType.Label) {
+        if (!(operand.value in labelToAddressMap)) {
+          throw new OperandLabelNotExistError(operand)
+        }
+        operand.code = labelToAddressMap[operand.value]
+      }
+    })
+
     const nextAddress = address + codes.length
     codes.forEach((code, codeIndex) => {
       addressToCodeMap[address + codeIndex] = code

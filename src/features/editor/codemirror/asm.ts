@@ -21,7 +21,8 @@ const TokenRegExp = {
   REGISTER:           /^[a-dA-D][lL]\b/,
   STRING:             /^"(?:(?:[^\\]|\\.)*?"|.*)/,
   UNKNOWN:            /^[^\s;:,["]+/,
-  NON_WHITESPACE:     /^\S+/
+  NON_WHITESPACE:     /^\S+/,
+  MEMORY_REFERENCE:   /^\[([a-zA-Z_]+)\]/
 } as const
 
 interface State {
@@ -70,6 +71,10 @@ const asmLanguage = StreamLanguage.define<State>({
       if (stream.match(TokenRegExp.STRING)) {
         state.operandsLeft -= 1
         return 'string'
+      }
+      if (stream.match(TokenRegExp.MEMORY_REFERENCE)) {
+        state.operandsLeft -= 1
+        return 'labelName'
       }
       if (state.expectingLabel && stream.match(TokenRegExp.LABEL_REFERENCE)) {
         state.operandsLeft -= 1
