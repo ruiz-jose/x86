@@ -69,18 +69,6 @@ export const assemble = (source: string): AssembleResult => {
       address = firstOperand.code
       continue
     }
-    /*if (firstOperand?.type === OperandType.Label) {
-      if (!(firstOperand.value in labelToAddressMap)) {
-        throw new LabelNotExistError(firstOperand)
-      }
-      const distance = labelToAddressMap[firstOperand.value] - address
-      if (distance < -128 || distance > 127) {
-        throw new JumpDistanceError(firstOperand)
-      }
-      const unsignedDistance = unsign8(distance)
-      firstOperand.code = unsignedDistance
-      codes.push(unsignedDistance)
-    }*/
 
     // Reemplazar etiquetas por direcciones
     operands.forEach((operand) => {

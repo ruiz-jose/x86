@@ -52,12 +52,10 @@ end
   it('should throw JumpDistanceError', () => {
     expect(() => {
       assemble(`
-start:
-inc al
-org fd
-jmp start
-end
-`)
+        ORG 0
+        JMP 300
+        end
+      `)
     }).toThrowErrorMatchingInlineSnapshot(`"Jump distance should be between -128 and 127."`)
   })
 })

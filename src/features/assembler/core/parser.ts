@@ -78,7 +78,7 @@ const createOperand = <T extends OperandType>(type: T, token: Token): Operand<T>
       case OperandType.String:
         return stringToAscii(token.value)
       case OperandType.Label:
-        return undefined
+        return undefined // Las etiquetas se resolverán más tarde
     }
   })
   return {
