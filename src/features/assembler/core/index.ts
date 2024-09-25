@@ -4,7 +4,7 @@ import { invariant } from '@/common/utils'
 import {
   AssembleEndOfMemoryError,
   DuplicateLabelError,
-  OperandLabelNotExistError
+  OperandLabelNotExistError,
 } from './exceptions'
 import { type Operand, OperandType, parse, type Statement } from './parser'
 
@@ -82,7 +82,6 @@ export const assemble = (source: string): AssembleResult => {
       codes.push(unsignedDistance)
     }*/
 
-    
     // Reemplazar etiquetas por direcciones
     operands.forEach((operand) => {
       if (operand.type === OperandType.Label) {

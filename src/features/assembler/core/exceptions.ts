@@ -163,7 +163,10 @@ export class JumpDistanceError extends AssembleError {
 }
 
 export class OperandError extends Error {
-  constructor(message: string, public range: SourceRange) {
+  constructor(
+    message: string,
+    public range: SourceRange,
+  ) {
     super(message)
     this.name = 'OperandError'
   }

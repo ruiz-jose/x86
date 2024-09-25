@@ -142,12 +142,12 @@ export const MnemonicToOperandCountMap = {
 export enum Opcode {
   END = 0x00,
 
-  ADD_REG_REG = 0xa0,  // reg <- reg
-  ADD_REG_INM = 0xd5,  // reg <- inm
-  ADD_REG_ADDR = 0xd6,  // reg <- dir
-  ADD_ADDR_REG = 0xd7,  // dir <- reg
-  ADD_REG_REGADDR = 0xd8,  // reg <- [reg]
-  ADD_REGADDR_REG = 0xd9,  // [reg] <- reg
+  ADD_REG_REG = 0xa0, // reg <- reg
+  ADD_REG_INM = 0xd5, // reg <- inm
+  ADD_REG_ADDR = 0xd6, // reg <- dir
+  ADD_ADDR_REG = 0xd7, // dir <- reg
+  ADD_REG_REGADDR = 0xd8, // reg <- [reg]
+  ADD_REGADDR_REG = 0xd9, // [reg] <- reg
 
   SUB_REG_FROM_REG = 0xa1,
   MUL_REG_BY_REG = 0xa2,
@@ -183,12 +183,12 @@ export enum Opcode {
   JO = 0xc5,
   JNO = 0xc6,
 
-  // Immediate Move 
-  MOV_REG_INM = 0xd0,  // reg <- inm
+  // Immediate Move
+  MOV_REG_INM = 0xd0, // reg <- inm
 
-  // Direct Move    
-  MOV_REG_ADDR = 0xd1,  // reg <- dir
-  MOV_ADDR_REG = 0xd2,  // dir <- reg
+  // Direct Move
+  MOV_REG_ADDR = 0xd1, // reg <- dir
+  MOV_ADDR_REG = 0xd2, // dir <- reg
 
   // Indirect Move
   MOV_REG_REGADDR = 0xd3, // reg <- [reg]
