@@ -254,7 +254,7 @@ export const step = (lastStepResult: StepResult, inputSignals: InputSignals): St
       }
 
       // Verifica que el código se esté ejecutando
-      console.log('Ejecutando la función para mostrar el estado del registro sr')
+     // console.log('Ejecutando la función para mostrar el estado del registro sr')
 
       // Lógica para el flag de carry
       if (__result > 0xff || __result < 0) {
@@ -276,7 +276,7 @@ export const step = (lastStepResult: StepResult, inputSignals: InputSignals): St
       setSr(flags | interruptFlag)
 
       // Mostrar el estado del registro de estado sr en la consola
-      console.log(`Estado del registro sr: ${flags.toString(2).padStart(8, '0')}`)
+      //console.log(`Estado del registro sr: ${flags.toString(2).padStart(8, '0')}`)
 
       //return result
       return __result & 0xff // Asegúrate de que el resultado esté en el rango de 8 bits

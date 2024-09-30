@@ -75,7 +75,7 @@ const asmLanguage = StreamLanguage.define<State>({
       if (stream.match(TokenRegExp.MEMORY_REFERENCE)) {
         state.operandsLeft -= 1
         return 'labelName'
-      }  
+      }
       state.operandsLeft = 0
     } else if (stream.match(TokenRegExp.UNKNOWN)) {
       const upperCaseToken = stream.current().toUpperCase()

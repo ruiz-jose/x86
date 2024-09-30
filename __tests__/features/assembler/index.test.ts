@@ -45,8 +45,8 @@ end
 
   it('should throw LabelNotExistError', () => {
     expect(() => {
-  assemble('jmp start end');
-}).toThrowErrorMatchingInlineSnapshot(`"Label 'START' does not exist."`)
+      assemble('jmp start end')
+    }).toThrowErrorMatchingInlineSnapshot(`"Label 'START' does not exist."`)
   })
 
   it('should throw JumpDistanceError', () => {
