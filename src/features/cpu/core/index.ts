@@ -254,7 +254,7 @@ export const step = (lastStepResult: StepResult, inputSignals: InputSignals): St
       }
 
       // Verifica que el código se esté ejecutando
-     // console.log('Ejecutando la función para mostrar el estado del registro sr')
+      // console.log('Ejecutando la función para mostrar el estado del registro sr')
 
       // Lógica para el flag de carry
       if (__result > 0xff || __result < 0) {
