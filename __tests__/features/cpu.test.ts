@@ -114,7 +114,7 @@ describe('cpu', () => {
       })
 
       it('should set carry flag on overflow', () => {
-        const memoryData = getMemoryData(`add al, 02 ADD AL, 255 end`)
+        const memoryData = getMemoryData(`add al, 02 add al, ff end`)
         const cpuRegisters = produce(initialRegisters, (draft) => {
           draft.gpr = [0xff, 1, 0, 0] // Cambia el valor inicial del registro AL a 0xFF
         })
