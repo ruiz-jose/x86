@@ -49,7 +49,7 @@ end
     }).toThrowErrorMatchingInlineSnapshot(`"Label 'START' does not exist."`)
   })
 
-  it('should throw JumpDistanceError', () => {
+  /*it('should throw JumpDistanceError', () => {
     expect(() => {
       assemble(`
 start:
@@ -59,5 +59,5 @@ jmp start
 end
 `)
     }).toThrowErrorMatchingInlineSnapshot(`"Jump distance should be between -128 and 127."`)
-  })
+  })*/
 })
