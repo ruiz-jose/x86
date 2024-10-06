@@ -49,7 +49,7 @@ end
     }).toThrowErrorMatchingInlineSnapshot(`"Label 'START' does not exist."`)
   })
 
-/*  it('should throw JumpDistanceError', () => {
+  /*  it('should throw JumpDistanceError', () => {
     expect(() => {
       assemble(`
 start:
